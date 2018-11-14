@@ -35,3 +35,8 @@ body {
         display: none;
     }
 }
+
+#forecastButton {
+    height: 100px;
+    width: auto;
+}

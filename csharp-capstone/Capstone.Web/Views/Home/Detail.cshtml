@@ -26,6 +26,9 @@
                     <p>@Model.ParkDescription</p>
                     <p>$@Model.EntryFee</p>
                     <p>@Model.NumberOfAnimalSpecies</p>
+                    <a asp-controller="home" asp-action="forecast" asp-route-parkcode="@Model.ParkCode">
+                        <img id="forecastButton" src="~/img/weather/weatherforecastbutton.jpg" alt="Button to display the forecast" />
+                    </a>
 
                 </td>
             </tr>

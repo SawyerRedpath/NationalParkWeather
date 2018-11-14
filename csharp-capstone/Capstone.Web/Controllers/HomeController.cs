@@ -11,27 +11,35 @@ namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
-        IParkDAL dal;
+        IParkDAL parkDAL;
+        IForecastDAL forecastDAL;
 
-        public HomeController(IParkDAL dal)
+        public HomeController(IParkDAL parkDAL, IForecastDAL forecastDAL)
         {
-            this.dal = dal;
+            this.parkDAL = parkDAL;
+            this.forecastDAL = forecastDAL;
         }
 
         public IActionResult Index()
         {
-            var parks = dal.GetParks();
+            var parks = parkDAL.GetParks();
 
             return View(parks);
         }
 
         public IActionResult Detail(string parkCode)
         {
-            var park = dal.GetPark(parkCode);
+            var park = parkDAL.GetPark(parkCode);
 
             return View(park);
         }
 
+        public IActionResult Forecast(string parkCode)
+        {
+            var forecasts = forecastDAL.GetForecasts(parkCode);
+
+            return View(forecasts);
+        }
       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

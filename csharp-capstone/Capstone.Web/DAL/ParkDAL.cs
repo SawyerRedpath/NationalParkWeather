@@ -16,6 +16,11 @@ namespace Capstone.Web.DAL
             this.connectionString = connectionString;
         }
 
+        /// <summary>
+        /// Gets a single park.
+        /// </summary>
+        /// <param name="parkCode"></param>
+        /// <returns></returns>
         public Park GetPark(string parkCode)
         {
             Park park = new Park();
@@ -37,7 +42,7 @@ namespace Capstone.Web.DAL
         }
 
         /// <summary>
-        /// Gets all parks
+        /// Gets all parks.
         /// </summary>
         /// <returns></returns>
         public IList<Park> GetParks()
