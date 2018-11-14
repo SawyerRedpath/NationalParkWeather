@@ -43,6 +43,11 @@
                         <p>Don't forget to pack sun block!</p>
                     }
 
+                    @if (forecast.High > 75)
+                    {
+                        <p>Bring an extra gallon of water!</p>
+                    }
+
                     @if (forecast.High - forecast.Low > 20)
                     {
                         <p>Wear breathable clothes!</p>
