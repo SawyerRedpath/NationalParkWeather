@@ -11,7 +11,9 @@
         {
             <tr>
                 <td>
-                    <img src="~/img/parks/@(park.ParkCode).jpg" alt="An image of @park.ParkName"/>
+                    <a asp-controller="home" asp-action="detail" asp-route-parkcode="@park.ParkCode">
+                        <img src="~/img/parks/@(park.ParkCode).jpg" alt="An image of @park.ParkName" />
+                    </a>
                 </td>
                 <td>
                     <p>@park.ParkName</p>

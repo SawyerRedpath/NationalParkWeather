@@ -14,6 +14,11 @@ namespace Capstone.Web.DAL
         /// <returns></returns>
         IList<Park> GetParks();
 
-        //IList<Park> GetPark()
+        /// <summary>
+        /// Returns single park
+        /// </summary>
+        /// <param name="parkCode"></param>
+        /// <returns></returns>
+        Park GetPark(string parkCode);
     }
 }
