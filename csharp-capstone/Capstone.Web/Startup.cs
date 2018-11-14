@@ -33,7 +33,7 @@ namespace Capstone.Web
 
             services.AddTransient<IParkDAL>(j => new ParkDAL(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
             services.AddTransient<IForecastDAL>(j => new ForecastDAL(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
-
+            services.AddTransient<ISurveyDAL>(j => new SurveyDAL(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

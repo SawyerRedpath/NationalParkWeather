@@ -34,5 +34,25 @@ namespace Capstone.Web.Models
         /// The forecasted weather of the day.
         /// </summary>
         public string Forecast { get; set; }
+
+
+        /// <summary>
+        /// converts from F to C
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public int FahrenheitToCelsius(double num)
+        {
+            double celsius = 0;
+            celsius = (((num - 32) * 5) / 9);
+            return (int)celsius;
+        }
     }
+
+
+
+
+
+
+
 }

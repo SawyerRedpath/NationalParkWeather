@@ -1,0 +1,35 @@
+﻿@model Survey
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Survey</h2>
+
+<form asp-controller="survey" asp-action="addsurvey" method="post">
+    <label asp-for="ParkCode"></label>
+    <select asp-for="ParkCode">
+        <option value="GNP">Glacier</option>
+        <option value="GCNP">Grand Canyon</option>
+        <option value="GTNP">Grand Teton</option>
+        <option value="MRNP">Mount Ranier</option>
+        <option value="GSMNP">Great Smokey Mountain</option>
+        <option value="ENP">Everglades</option>
+        <option value="YNP">Yellowstone</option>
+        <option value="YNP2">Yosemite</option>
+        <option value="CVNP">Cuyahoga Valley</option>
+        <option value="RMNP">Rocky Mountain</option>
+    </select>
+
+    <label asp-for="EmailAddress"></label>
+    <input type="email" asp-for="EmailAddress" />
+
+    <label asp-for="State"></label>
+    <select asp-for="State" asp-items="@Survey.States"></select>
+
+    <input type="radio" asp-for="ActivityLevel" value="Inactive" />Inactive
+    <input type="radio" asp-for="ActivityLevel" value="Sedentary" />Sedentary
+    <input type="radio" asp-for="ActivityLevel" value="Active" />Active
+    <input type="radio" asp-for="ActivityLevel" value="Extremely Active" />Extremely Active
+
+    <input type="submit" value="SUBMIT" />
+</form>
