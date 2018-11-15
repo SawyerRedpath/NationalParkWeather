@@ -18,9 +18,10 @@
 </head>
 <body>
     
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            @*<img id="logo-header" src="~/img/logo.png" alt="logo image" />*@
+    <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #ffffff">
+        <img id="logo-header" src="~/img/logo.png" alt="logo image" />
+        <div>
+
             <div class="navbar-header">
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -31,9 +32,9 @@
                 @*<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Capstone.Web</a>*@
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Survey" asp-action="Index">Survey</a></li>
+                <ul class="nav navbar-dark navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index" style="color:black"><strong>Home</strong></a></li>
+                    <li><a asp-area="" asp-controller="Survey" asp-action="Index" style="color:black"><strong>Survey</strong></a></li>
                 </ul>
             </div>
         </div>

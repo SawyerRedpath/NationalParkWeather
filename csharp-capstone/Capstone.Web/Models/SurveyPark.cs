@@ -11,6 +11,5 @@ namespace Capstone.Web.Models
 
         public Park park { get; set; }
 
-
     }
 }

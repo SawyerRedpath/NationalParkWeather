@@ -35,6 +35,10 @@ namespace Capstone.Web.Models
         /// </summary>
         public string Forecast { get; set; }
 
+        /// <summary>
+        /// The degree is either F or C
+        /// </summary>
+        public string Degree { get; set; } = "F";
 
         /// <summary>
         /// converts from F to C
