@@ -31,6 +31,14 @@ namespace Capstone.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                // Sets session expiration to 20 minuates
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+                options.Cookie.HttpOnly = true;
+            });
+
             services.AddTransient<IParkDAL>(j => new ParkDAL(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
             services.AddTransient<IForecastDAL>(j => new ForecastDAL(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
             services.AddTransient<ISurveyDAL>(j => new SurveyDAL(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
@@ -53,7 +61,7 @@ namespace Capstone.Web
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

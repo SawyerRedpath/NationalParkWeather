@@ -3,6 +3,8 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 /* Wrapping element */
@@ -36,7 +38,14 @@ body {
     }
 }
 
+
+
 #forecastButton {
     height: 100px;
+    width: auto;
+}
+
+#logo-header {
+    height: 20vh;
     width: auto;
 }

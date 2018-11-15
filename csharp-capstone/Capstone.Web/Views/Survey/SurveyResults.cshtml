@@ -1,7 +1,25 @@
-﻿
+﻿@model IList<SurveyPark>
 @{
     ViewData["Title"] = "SurveyResults";
 }
 
-<h2>SurveyResults</h2>
+<h1>Survey Results</h1>
 
+<table class="table table-bordered">
+    <tbody>
+        @foreach (var surveypark in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="home" asp-action="detail" asp-route-parkcode="@surveypark.park.ParkCode">
+                        <img src="~/img/parks/@(surveypark.park.ParkCode).jpg" alt="An image of @surveypark.park.ParkName" />
+                    </a>
+                </td>
+                <td>
+                    <h2>@surveypark.park.ParkName</h2>
+                    <h2>@surveypark.Count</h2>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

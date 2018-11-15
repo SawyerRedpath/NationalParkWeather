@@ -43,14 +43,15 @@ namespace Capstone.Web.DAL
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(@"SELECT parkCode, count(*) 
+                SqlCommand cmd = new SqlCommand(@"SELECT parkCode, count(*) as hits 
                 FROM survey_result 
-                GROUP BY parkCode;", conn);
+                GROUP BY parkCode
+                ORDER BY hits desc, parkCode;", conn);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    surveyResults.Add(Convert.ToString(reader["parkCode"]), Convert.ToInt32(reader["count(*)"]));
+                    surveyResults.Add(Convert.ToString(reader["parkCode"]), Convert.ToInt32(reader["hits"]));
                 }
 
                 return surveyResults;
