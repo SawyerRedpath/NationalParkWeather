@@ -3,7 +3,7 @@
     ViewData["Title"] = "Detail";
 }
 
-<h2>Detail</h2>
+<h2>@Model.ParkName</h2>
 
 <table class="table table-bordered">
     <tbody>
@@ -12,30 +12,37 @@
                     <img src="~/img/parks/@(Model.ParkCode).jpg" alt="An image of Model.ParkName" />
                 </td>
                 <td>
-                    <p>@Model.ParkName</p>
-                    <p>@Model.State</p>
-                    <p>@Model.Acreage</p>
-                    <p>@Model.ElevationInFeet</p>
-                    <p>@Model.MilesOfTrail</p>
-                    <p>@Model.NumberOfCampsites</p>
-                    <p>@Model.Climate</p>
-                    <p>@Model.YearFounded</p>
-                    <p>@Model.AnnualVisitorCount</p>
-                    <p>@Model.InspirationalQuote</p>
-                    <p>@Model.InspirationalQuoteSource</p>
+                    <p><strong>@Model.ParkName</strong></p>
+                    <p>State Located in: @Model.State</p>
+                    <p>Acreage: @Model.Acreage</p>
+                    <p>Elevation: @Model.ElevationInFeet</p>
+                    <p>Miles of Trials: @Model.MilesOfTrail</p>
+                    <p>Number of Campsites: @Model.NumberOfCampsites</p>
+                    <p>Climate: @Model.Climate</p>
+                    <p>Year Founded: @Model.YearFounded</p>
+                    <p>Annual Vistors: @Model.AnnualVisitorCount</p>
+                    <p>Number of Animal Species: @Model.NumberOfAnimalSpecies</p>
+                    <p>"@Model.InspirationalQuote" - @Model.InspirationalQuoteSource</p>
                     <p>@Model.ParkDescription</p>
-                    <p>$@Model.EntryFee</p>
-                    <p>@Model.NumberOfAnimalSpecies</p>
-                    <a asp-controller="home" asp-action="forecast" asp-route-parkcode="@Model.ParkCode">
+                    <p>Entry Fee: $@Model.EntryFee</p>
+
+                    @*<a asp-controller="home" asp-action="forecast" asp-route-parkcode="@Model.ParkCode">
                         <img id="forecastButton" src="~/img/weather/weatherforecastbutton.jpg" alt="Button to display the forecast" />
-                    </a>
+                    </a>*@
 
                     <form asp-controller="home" asp-action="forecast" method="post">
                         Fahrenheit:  @Html.RadioButton("Degree", "F", true)
                         Celsius:  @Html.RadioButton("Degree", "C", false)
+
                         <input type="hidden" name="ParkCode" value="@Model.ParkCode" />
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="5-Day Weather Forecast" />
                     </form>
+
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round" ></span>
+                    </label>
+
 
                 </td>
             </tr>

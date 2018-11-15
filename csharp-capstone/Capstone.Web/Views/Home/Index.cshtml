@@ -3,9 +3,9 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h2>All Parks</h2>
+<h2>National Parks</h2>
 
-<table class="table table-bordered">
+<table class="table table-bordered-">
     <tbody>
         @foreach (var park in Model)
         {
@@ -16,9 +16,9 @@
                     </a>
                 </td>
                 <td>
-                    <p>@park.ParkName</p>
-                    <p>@park.State</p>
-                    <p>@park.ParkDescription</p>
+                    <p class="homepage_container"><strong>@park.ParkName</strong></p>
+                    <p class="homepage_container">Located in: @park.State</p>
+                    <p class="homepage_container">@park.ParkDescription</p>
                 </td>
             </tr>
         }

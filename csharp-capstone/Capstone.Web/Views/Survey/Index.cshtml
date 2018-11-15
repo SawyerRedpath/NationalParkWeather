@@ -6,7 +6,7 @@
 <h2>Survey</h2>
 
 <form asp-controller="survey" asp-action="addsurvey" method="post">
-    <label asp-for="ParkCode"></label>
+    <label asp-for="ParkCode"><strong>Favorite National Park</strong></label>
     <select asp-for="ParkCode">
         <option value="GNP">Glacier</option>
         <option value="GCNP">Grand Canyon</option>
@@ -20,10 +20,10 @@
         <option value="RMNP">Rocky Mountain</option>
     </select>
 
-    <label asp-for="EmailAddress"></label>
+    <label asp-for="EmailAddress">Your Email</label>
     <input type="email" asp-for="EmailAddress" />
 
-    <label asp-for="State"></label>
+    <label asp-for="State">Your State of Residence</label>
     <select asp-for="State" asp-items="@Survey.States"></select>
 
     <input type="radio" asp-for="ActivityLevel" value="Inactive" />Inactive
