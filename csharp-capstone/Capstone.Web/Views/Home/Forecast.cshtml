@@ -3,65 +3,64 @@
     ViewData["Title"] = "Forecast";
 }
 
-<h2 class="heading">Forecast</h2>
+<h2 class="heading">5-Day Weather Forecast</h2>
 
 
-<table class="table table-bordered">
-    <tbody>
-        @foreach (var forecast in Model)
-        {
-            if (forecast.FiveDayForecastValue == 1)
+
+    <div class="weather-container">
+       
+
+            @foreach (var forecast in Model)
             {
-                <tr>
-                    <td>
-                        <h3>Today</h3>
-                    </td>
-                </tr>
+
+
+                <div class="weather-info text-content">
+                    
+                            <h3 class="heading">Day @forecast.FiveDayForecastValue</h3>
+                     
+                            <img id="pic" src="~/img/weather/@(forecast.Forecast).png" alt="An image of a @forecast.Forecast emoticon" />
+                            <p></p>
+                            <p id="temp-hot"><strong>High: </strong>@forecast.High</p>
+                            <p id="temp-cold"><strong>Low: </strong>@forecast.Low</p>
+
+                            @if (forecast.Forecast == "snow")
+                            {
+                                <p>Don't forget to pack snow shoes!</p>
+                            }
+
+                            @if (forecast.Forecast == "rain")
+                            {
+                                <p>Don't forget to pack raingear and wear waterproof shoes!</p>
+                            }
+
+                            @if (forecast.Forecast == "thunderstorms")
+                            {
+                                <p>Seek shelter and avoid hiking on exposed ridges!</p>
+                            }
+
+                            @if (forecast.Forecast == "sunny")
+                            {
+                                <p>Don't forget to pack sun block!</p>
+                            }
+
+                            @if (forecast.High > 75)
+                            {
+                                <p>Bring an extra gallon of water!</p>
+                            }
+
+                            @if (forecast.High - forecast.Low > 20)
+                            {
+                                <p>Wear breathable clothes!</p>
+                            }
+
+                            @if (forecast.Low < 20)
+                            {
+                                <p>Beware of the dangers associated with exposure to frigid temperatures!</p>
+                            }
+
+                    </div>
             }
-            <tr>
-                <td>
-                    <img src="~/img/weather/@(forecast.Forecast).png" alt="An image of a @forecast.Forecast emoticon" />
-                    <p>High: @forecast.High</p>
-                    <p>Low: @forecast.Low</p>
 
-                    @if (forecast.Forecast == "snow")
-                    {
-                        <p>Don't forget to pack snow shoes!</p>
-                    }
+    </div>
 
-                    @if (forecast.Forecast == "rain")
-                    {
-                        <p>Don't forget to pack raingear and wear waterproof shoes!</p>
-                    }
-
-                    @if (forecast.Forecast == "thunderstorms")
-                    {
-                        <p>Seek shelter and avoid hiking on exposed ridges!</p>
-                    }
-
-                    @if (forecast.Forecast == "sunny")
-                    {
-                        <p>Don't forget to pack sun block!</p>
-                    }
-
-                    @if (forecast.High > 75)
-                    {
-                        <p>Bring an extra gallon of water!</p>
-                    }
-
-                    @if (forecast.High - forecast.Low > 20)
-                    {
-                        <p>Wear breathable clothes!</p>
-                    }
-
-                    @if (forecast.Low < 20) 
-                    {
-                        <p>Beware of the dangers associated with exposure to frigid temperatures!</p>
-                    }
-
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
 

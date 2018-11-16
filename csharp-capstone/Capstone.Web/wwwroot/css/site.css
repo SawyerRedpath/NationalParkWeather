@@ -78,7 +78,41 @@ body {
     color: darkgreen;
     font-family: 'Allerta Stencil', sans-serif;
 }
+.weather-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   
 
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start center;
+    align-items: center;
+}
+
+#pic {
+    
+    height: 150px;
+    width: 150px;
+}
+
+.text-content {
+    font-family: 'Acme', sans-serif;
+    font-size: 110%;
+}
+
+#temp-hot {
+    color: red;
+    font-family: 'Acme', sans-serif;
+}
+
+#temp-cold {
+    color: blue;
+    font-family: 'Acme', sans-serif;
+}
 
 
 .table .park-row {
