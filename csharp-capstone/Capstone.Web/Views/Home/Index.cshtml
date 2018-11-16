@@ -3,12 +3,13 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h2>National Parks</h2>
+<h2 class="heading">National Parks</h2>
 
-<table class="table table-bordered-">
+<table class="table">
     <tbody>
         @foreach (var park in Model)
         {
+        <div class="park-row">
             <tr>
                 <td>
                     <a asp-controller="home" asp-action="detail" asp-route-parkcode="@park.ParkCode">
@@ -16,11 +17,12 @@
                     </a>
                 </td>
                 <td>
-                    <p class="homepage_container"><strong>@park.ParkName</strong></p>
+                    <p class="homepage_container heading"><strong>@park.ParkName</strong></p>
                     <p class="homepage_container">Located in: @park.State</p>
                     <p class="homepage_container">@park.ParkDescription</p>
                 </td>
             </tr>
+        </div>
         }
         </tbody>
 </table>

@@ -3,32 +3,32 @@
     ViewData["Title"] = "Detail";
 }
 
-<h2>@Model.ParkName</h2>
+<h2 class="heading">@Model.ParkName</h2>
 
-<table class="table table-bordered">
+<table class="table">
     <tbody>
            <tr>
                 <td>
                     <img src="~/img/parks/@(Model.ParkCode).jpg" alt="An image of Model.ParkName" />
                 </td>
                 <td>
-                    <p><strong>@Model.ParkName</strong></p>
-                    <p>State Located in: @Model.State</p>
-                    <p>Acreage: @Model.Acreage</p>
-                    <p>Elevation: @Model.ElevationInFeet</p>
-                    <p>Miles of Trials: @Model.MilesOfTrail</p>
+                    <p>State: @Model.State</p>
+                    <p>Acres: @Model.Acreage </p>
+                    <p>Elevation: @Model.ElevationInFeet ft.</p>
+                    <p>Miles of Trials: @Model.MilesOfTrail </p>
                     <p>Number of Campsites: @Model.NumberOfCampsites</p>
                     <p>Climate: @Model.Climate</p>
                     <p>Year Founded: @Model.YearFounded</p>
                     <p>Annual Vistors: @Model.AnnualVisitorCount</p>
                     <p>Number of Animal Species: @Model.NumberOfAnimalSpecies</p>
+                    <p>Entry Fee: $@Model.EntryFee</p>
                     <p>"@Model.InspirationalQuote" - @Model.InspirationalQuoteSource</p>
                     <p>@Model.ParkDescription</p>
-                    <p>Entry Fee: $@Model.EntryFee</p>
+
 
                     @*<a asp-controller="home" asp-action="forecast" asp-route-parkcode="@Model.ParkCode">
-                        <img id="forecastButton" src="~/img/weather/weatherforecastbutton.jpg" alt="Button to display the forecast" />
-                    </a>*@
+            <img id="forecastButton" src="~/img/weather/weatherforecastbutton.jpg" alt="Button to display the forecast" />
+        </a>*@
 
                     <form asp-controller="home" asp-action="forecast" method="post">
                         Fahrenheit:  @Html.RadioButton("Degree", "F", true)
@@ -37,13 +37,6 @@
                         <input type="hidden" name="ParkCode" value="@Model.ParkCode" />
                         <input type="submit" value="5-Day Weather Forecast" />
                     </form>
-
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round" ></span>
-                    </label>
-
-
                 </td>
             </tr>
 
