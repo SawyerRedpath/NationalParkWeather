@@ -12,17 +12,17 @@
                     <img src="~/img/parks/@(Model.ParkCode).jpg" alt="An image of Model.ParkName" />
                 </td>
                 <td>
-                    <p>State: @Model.State</p>
-                    <p>Acres: @Model.Acreage </p>
-                    <p>Elevation: @Model.ElevationInFeet ft.</p>
-                    <p>Miles of Trials: @Model.MilesOfTrail </p>
-                    <p>Number of Campsites: @Model.NumberOfCampsites</p>
-                    <p>Climate: @Model.Climate</p>
-                    <p>Year Founded: @Model.YearFounded</p>
-                    <p>Annual Vistors: @Model.AnnualVisitorCount</p>
-                    <p>Number of Animal Species: @Model.NumberOfAnimalSpecies</p>
-                    <p>Entry Fee: $@Model.EntryFee</p>
-                    <p>"@Model.InspirationalQuote" - @Model.InspirationalQuoteSource</p>
+                    <p><strong>State:</strong> @Model.State</p>
+                    <p><strong>Acres: </strong>@Model.Acreage </p>
+                    <p><strong>Elevation:</strong> @Model.ElevationInFeet ft.</p>
+                    <p><strong>Miles of Trials:</strong> @Model.MilesOfTrail </p>
+                    <p><strong>Number of Campsites:</strong> @Model.NumberOfCampsites</p>
+                    <p><strong>Climate</strong> @Model.Climate</p>
+                    <p><strong>Year Founded:</strong> @Model.YearFounded</p>
+                    <p><strong>Annual Vistors:</strong> @Model.AnnualVisitorCount</p>
+                    <p><strong>Number of Animal Species: </strong>@Model.NumberOfAnimalSpecies</p>
+                    <p><strong>Entry Fee:</strong> $@Model.EntryFee</p>
+                    <p>"@Model.InspirationalQuote" - <em>@Model.InspirationalQuoteSource</em></p>
                     <p>@Model.ParkDescription</p>
 
 
@@ -35,6 +35,8 @@
                         Celsius:  @Html.RadioButton("Degree", "C", false)
 
                         <input type="hidden" name="ParkCode" value="@Model.ParkCode" />
+                        <br />
+                        <br />
                         <input type="submit" value="5-Day Weather Forecast" />
                     </form>
                 </td>

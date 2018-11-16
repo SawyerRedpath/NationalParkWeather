@@ -3,7 +3,8 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h2 class="heading">National Parks</h2>
+<h1 class="heading"><strong>National Parks</strong></h1>
+<br />
 
 <table class="table">
     <tbody>
@@ -17,8 +18,8 @@
                     </a>
                 </td>
                 <td>
-                    <p class="homepage_container heading"><strong>@park.ParkName</strong></p>
-                    <p class="homepage_container">Located in: @park.State</p>
+                    <h3 class="homepage_container heading">@park.ParkName</h3>
+                    <h4 class="homepage_container"><strong>Located in:</strong>  @(park.State)</h4>
                     <p class="homepage_container">@park.ParkDescription</p>
                 </td>
             </tr>

@@ -19,27 +19,30 @@
 </head>
 <body>
     
-    <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #ffffff">
-        <img id="logo-header" src="~/img/logo.png" alt="logo image" />
-        <div>
 
-            <div class="navbar-header">
+        <nav class="navbar navbar-light navbar-fixed-top">
+            <div>
+                <img id="logo-header" src="~/img/altlogo.png" alt="logo image" />
 
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    @*<span class="sr-only">Toggle navigation</span>*@
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @*<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Capstone.Web</a>*@
+
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        @*<span class="sr-only">Toggle navigation</span>*@
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @*<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Capstone.Web</a>*@
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-dark navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index" style="color:black"><strong>Home</strong></a></li>
+                        <li><a asp-area="" asp-controller="Survey" asp-action="Index" style="color:black"><strong>Survey</strong></a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-dark navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index" style="color:black"><strong>Home</strong></a></li>
-                    <li><a asp-area="" asp-controller="Survey" asp-action="Index" style="color:black"><strong>Survey</strong></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        </nav>
+
 
     <partial name="_CookieConsentPartial" />
 
