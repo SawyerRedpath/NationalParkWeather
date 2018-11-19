@@ -16,6 +16,20 @@ namespace Capstone.Web.Models
 
         public string ActivityLevel { get; set; }
 
+        public static IList<SelectListItem> Parks = new List<SelectListItem>()
+        {
+            new SelectListItem() { Text =  "Glacier", Value = "GNP"},
+            new SelectListItem() { Text = "Grand Canyon", Value = "GCNP"},
+            new SelectListItem() { Text = "Grand Teton", Value = "GTNP"},
+            new SelectListItem() { Text = "Mount Ranier", Value = "MRNP"},
+            new SelectListItem() { Text = "Great Smoky Mountain", Value = "GSMNP"},
+            new SelectListItem() { Text = "Everglades", Value = "ENP"},
+            new SelectListItem() { Text = "Yellowstone", Value = "YNP"},
+            new SelectListItem() { Text = "Yosemite", Value = "YNP2"},
+            new SelectListItem() { Text = "Cuyahoga Valley", Value = "CVNP"},
+            new SelectListItem() { Text = "Rocky Mountain", Value = "RMNP"}
+        };
+
         public static IList<SelectListItem> States = new List<SelectListItem>()
         {
             new SelectListItem() { Text = "AL", Value = "AL"},

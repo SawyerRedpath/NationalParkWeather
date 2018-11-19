@@ -8,23 +8,15 @@
 <p></p>
 <p></p>
 
+
 <form asp-controller="survey" asp-action="addsurvey" method="post">
+  
+  @*  The below code for is not submitting surveys successfully but is prettier.
     <div class="form-style-5">
 
         <fieldset>
             <label class="text-content" asp-for="ParkCode">What is your Favorite National Park?</label>
-            <select asp-for="ParkCode" name="field4">
-                <option value="GNP">Glacier</option>
-                <option value="GCNP">Grand Canyon</option>
-                <option value="GTNP">Grand Teton</option>
-                <option value="MRNP">Mount Ranier</option>
-                <option value="GSMNP">Great Smoky Mountain</option>
-                <option value="ENP">Everglades</option>
-                <option value="YNP">Yellowstone</option>
-                <option value="YNP2">Yosemite</option>
-                <option value="CVNP">Cuyahoga Valley</option>
-                <option value="RMNP">Rocky Mountain</option>
-            </select>
+            <select asp-for="ParkCode" asp-items="@Survey.Parks" name="field4"></select>
             <label class="text-content" asp-for="EmailAddress">What's your email address?</label>
             <input asp-for="EmailAddress" type="email" name="field2" placeholder="Your Email ">
             <label class="text-content" asp-for="State">Your State of Residence</label>
@@ -39,44 +31,42 @@
             <input class="heading" type="submit" value="SUBMIT" />
         </fieldset>
 
-
     </div>
 </form>
+*@
 
+<div>
+    <label class="label-style" asp-for="ParkCode"><strong>Favorite National Park</strong></label>
+    <select asp-for="ParkCode" asp-items="@Survey.Parks"></select>
+</div>
 
+<div>
+    <label class="label-style" asp-for="EmailAddress">Your Email</label>
+    <input type="email" asp-for="EmailAddress" />
+</div>
 
+<div>
+    <label class="label-style" asp-for="State">Your State of Residence</label>
+    <select asp-for="State" asp-items="@Survey.States"></select>
+</div>
 
-@*<div>
-            <label class="label-style" asp-for="ParkCode"><strong>Favorite National Park</strong></label>
-            <select asp-for="ParkCode">
+<div>
+    <label class="label-style" asp-for="ActivityLevel">What's your level of activity?</label>
+    <select asp-for="ActivityLevel">
+        <option value="Inactive">Inactive</option>
+        <option value="Sedentary">Sedentary</option>
+        <option value="Active">Active</option>
+        <option value="Extremely Active">Extremely Active</option>
+    </select>
 
-            </select>
-        </div>
+</div>
 
-        <div>
-            <label class="label-style" asp-for="EmailAddress">Your Email</label>
-            <input type="email" asp-for="EmailAddress" />
-        </div>
+<div>
+    <label class="label-style">
+        <input type="submit" value="SUBMIT" />
+    </label>
+</div>
 
-        <div>
-            <label class="label-style" asp-for="State">Your State of Residence</label>
-            <select asp-for="State" asp-items="@Survey.States"></select>
-        </div>
+</form>
+    
 
-        <div>
-            <label class="label-style" asp-for="ActivityLevel">What's your level of activity?</label>
-            <select asp-for="ActivityLevel">
-                <option value="Inactive">Inactive</option>
-                <option value="Sedentary">Sedentary</option>
-                <option value="Active">Active</option>
-                <option value="Extremely Active">Extremely Active</option>
-            </select>
-
-        </div>
-
-        <div>
-            <label class="label-style">
-                <input type="submit" value="SUBMIT" />
-            </label>
-        </div>
-    </form>*@
