@@ -4,21 +4,14 @@
 }
 
 <h2 class="heading">The Official National Park Survey </h2>
-<h1></h1>
-<p></p>
-<p></p>
 
-
-<form asp-controller="survey" asp-action="addsurvey" method="post">
-  
-  @*  The below code for is not submitting surveys successfully but is prettier.
+<form asp-controller="survey" asp-action="addsurvey" method="post">    
     <div class="form-style-5">
-
         <fieldset>
             <label class="text-content" asp-for="ParkCode">What is your Favorite National Park?</label>
-            <select asp-for="ParkCode" asp-items="@Survey.Parks" name="field4"></select>
+            <select asp-for="ParkCode" asp-items="@Survey.Parks" ></select>
             <label class="text-content" asp-for="EmailAddress">What's your email address?</label>
-            <input asp-for="EmailAddress" type="email" name="field2" placeholder="Your Email ">
+            <input asp-for="EmailAddress" type="email" placeholder="Your Email ">
             <label class="text-content" asp-for="State">Your State of Residence</label>
             <select asp-for="State" asp-items="@Survey.States"></select>
             <label class="text-content" asp-for="ActivityLevel">What's your level of activity?</label>
@@ -30,43 +23,6 @@
             </select>
             <input class="heading" type="submit" value="SUBMIT" />
         </fieldset>
-
     </div>
 </form>
-*@
-
-<div>
-    <label class="label-style" asp-for="ParkCode"><strong>Favorite National Park</strong></label>
-    <select asp-for="ParkCode" asp-items="@Survey.Parks"></select>
-</div>
-
-<div>
-    <label class="label-style" asp-for="EmailAddress">Your Email</label>
-    <input type="email" asp-for="EmailAddress" />
-</div>
-
-<div>
-    <label class="label-style" asp-for="State">Your State of Residence</label>
-    <select asp-for="State" asp-items="@Survey.States"></select>
-</div>
-
-<div>
-    <label class="label-style" asp-for="ActivityLevel">What's your level of activity?</label>
-    <select asp-for="ActivityLevel">
-        <option value="Inactive">Inactive</option>
-        <option value="Sedentary">Sedentary</option>
-        <option value="Active">Active</option>
-        <option value="Extremely Active">Extremely Active</option>
-    </select>
-
-</div>
-
-<div>
-    <label class="label-style">
-        <input type="submit" value="SUBMIT" />
-    </label>
-</div>
-
-</form>
-    
 

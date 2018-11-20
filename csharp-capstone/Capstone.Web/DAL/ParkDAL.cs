@@ -60,7 +60,6 @@ namespace Capstone.Web.DAL
                     parks.Add(MapRowToPark(reader));
                 }
             }
-
                 return parks;
         }
 

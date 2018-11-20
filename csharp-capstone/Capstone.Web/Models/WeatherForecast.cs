@@ -52,11 +52,4 @@ namespace Capstone.Web.Models
             return (int)celsius;
         }
     }
-
-
-
-
-
-
-
 }

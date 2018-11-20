@@ -17,23 +17,18 @@ namespace Capstone.Web.Controllers
             this.surveyDAL = surveyDAL;
             this.parkDAL = parkDAL;
         }
-
         public IActionResult Index()
         {
             Survey survey = new Survey();
             return View(survey);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AddSurvey(Survey survey)
         {
             surveyDAL.AddSurvey(survey);
-
             return RedirectToAction("SurveyResults", "Survey");
-
         }
-
         public IActionResult SurveyResults()
         {
             //call dal and return list of parks codes and counts
@@ -49,9 +44,6 @@ namespace Capstone.Web.Controllers
                 sp.Count = kvp.Value;
                 surveyParks.Add(sp);
             }
-            //create instance  list? of surveypark 
-
-            //for each loop through dictionary (surveycounts) get kevp f park count 
             return View(surveyParks);
         }
     }

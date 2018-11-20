@@ -3,7 +3,7 @@
     ViewData["Title"] = "SurveyResults";
 }
 
-<h1>Survey Results</h1>
+<h1 class="heading">Most Favorited National Parks</h1>
 
 <table class="table table-bordered">
     <tbody>
@@ -16,8 +16,8 @@
                     </a>
                 </td>
                 <td>
-                    <h2>@surveypark.park.ParkName</h2>
-                    <h2>@surveypark.Count</h2>
+                    <h2 id="survey-results">@surveypark.park.ParkName</h2>
+                    <h2 id="favorite">Favorited by @surveypark.Count vistor(s)</h2>
                 </td>
             </tr>
         }

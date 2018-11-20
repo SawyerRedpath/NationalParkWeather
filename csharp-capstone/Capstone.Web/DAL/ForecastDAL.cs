@@ -37,7 +37,6 @@ namespace Capstone.Web.DAL
                     forecasts.Add(MapRowToForecast(reader));
                 }
             }
-
                 return forecasts;
         }
 

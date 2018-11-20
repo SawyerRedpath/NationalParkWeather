@@ -61,6 +61,24 @@ body {
     justify-content: center;
 }
 
+#survey-results {
+    display: flex;
+    justify-content: center;
+    font: bold;
+    color: darkgreen;
+    font-family: 'Allerta Stencil', sans-serif;
+    font-size: 20px;
+}
+
+#favorite {
+    display: flex;
+    justify-content: center;
+    font: bold;
+    color: red;
+    font-family: 'Allerta Stencil', sans-serif;
+    font-size: 18px;
+}
+
 .survey {
     display: flex;
    flex-direction: column;

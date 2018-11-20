@@ -25,15 +25,9 @@
                     <p>"@Model.InspirationalQuote" - <em>@Model.InspirationalQuoteSource</em></p>
                     <p>@Model.ParkDescription</p>
 
-
-                    @*<a asp-controller="home" asp-action="forecast" asp-route-parkcode="@Model.ParkCode">
-            <img id="forecastButton" src="~/img/weather/weatherforecastbutton.jpg" alt="Button to display the forecast" />
-        </a>*@
-
                     <form asp-controller="home" asp-action="forecast" method="post">
                         Fahrenheit:  @Html.RadioButton("Degree", "F", true)
                         Celsius:  @Html.RadioButton("Degree", "C", false)
-
                         <input type="hidden" name="ParkCode" value="@Model.ParkCode" />
                         <br />
                         <br />
@@ -41,6 +35,5 @@
                     </form>
                 </td>
             </tr>
-
     </tbody>
 </table>

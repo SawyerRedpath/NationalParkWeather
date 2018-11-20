@@ -4,20 +4,11 @@
 }
 
 <h2 class="heading">5-Day Weather Forecast</h2>
-
-
-
     <div class="weather-container">
-       
-
             @foreach (var forecast in Model)
             {
-
-
-                <div class="weather-info text-content">
-                    
-                            <h3 class="heading">Day @forecast.FiveDayForecastValue</h3>
-                     
+                <div class="weather-info text-content">                    
+                            <h3 class="heading">Day @forecast.FiveDayForecastValue</h3>                
                             <img id="pic" src="~/img/weather/@(forecast.Forecast).png" alt="An image of a @forecast.Forecast emoticon" />
                             <p></p>
                             <p id="temp-hot"><strong>High: </strong>@forecast.High</p>
@@ -57,10 +48,8 @@
                             {
                                 <p>Beware of the dangers associated with exposure to frigid temperatures!</p>
                             }
-
                     </div>
-            }
-
+             }
     </div>
 
 

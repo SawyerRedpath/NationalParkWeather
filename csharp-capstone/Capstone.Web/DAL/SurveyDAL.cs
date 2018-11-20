@@ -53,7 +53,6 @@ namespace Capstone.Web.DAL
                 {
                     surveyResults.Add(Convert.ToString(reader["parkCode"]), Convert.ToInt32(reader["hits"]));
                 }
-
                 return surveyResults;
             }
         }
