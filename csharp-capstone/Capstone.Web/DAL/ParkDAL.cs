@@ -1,76 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 using Capstone.Web.Models;
 
 namespace Capstone.Web.DAL
 {
-    public class ParkDAL : IParkDAL
+    public class ParkDal : IParkDal
     {
-        private string connectionString;
+        private readonly string _connectionString;
 
-        public ParkDAL(string connectionString)
+        public ParkDal(string connectionString)
         {
-            this.connectionString = connectionString;
+            _connectionString = connectionString;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Gets a single park.
+        ///     Gets a single park.
         /// </summary>
         /// <param name="parkCode"></param>
         /// <returns></returns>
         public Park GetPark(string parkCode)
         {
-            Park park = new Park();
+            var park = new Park();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (var conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM park WHERE parkCode = @parkCode;", conn);
+                var cmd = new SqlCommand("SELECT * FROM park WHERE parkCode = @parkCode;", conn);
                 cmd.Parameters.AddWithValue("@parkCode", parkCode);
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    park = MapRowToPark(reader);
-                }
+                var reader = cmd.ExecuteReader();
+                while (reader.Read()) park = MapRowToPark(reader);
             }
 
             return park;
         }
 
         /// <summary>
-        /// Gets all parks.
+        ///     Gets all parks.
         /// </summary>
         /// <returns></returns>
         public IList<Park> GetParks()
         {
             IList<Park> parks = new List<Park>();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (var conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM park;", conn);
+                var cmd = new SqlCommand("SELECT * FROM park;", conn);
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    parks.Add(MapRowToPark(reader));
-                }
+                var reader = cmd.ExecuteReader();
+                while (reader.Read()) parks.Add(MapRowToPark(reader));
             }
-                return parks;
+
+            return parks;
         }
 
         /// <summary>
-        /// Maps a row to a park
+        ///     Maps a row to a park
         /// </summary>
         /// <param name="reader"></param>
         /// <returns></returns>
         private Park MapRowToPark(SqlDataReader reader)
         {
-            return new Park()
+            return new Park
             {
                 ParkCode = Convert.ToString(reader["parkCode"]),
                 ParkName = Convert.ToString(reader["parkName"]),

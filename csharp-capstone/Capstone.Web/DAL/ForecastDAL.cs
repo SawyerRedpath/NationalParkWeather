@@ -7,13 +7,13 @@ using Capstone.Web.Models;
 
 namespace Capstone.Web.DAL
 {
-    public class ForecastDAL : IForecastDAL
+    public class ForecastDal : IForecastDal
     {
-        private string connectionString;
+        private string _connectionString;
 
-        public ForecastDAL(string connectionString)
+        public ForecastDal(string connectionString)
         {
-            this.connectionString = connectionString;
+            this._connectionString = connectionString;
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace Capstone.Web.DAL
         {
             IList<WeatherForecast> forecasts = new List <WeatherForecast>();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM weather WHERE parkCode = @parkCode;", conn);

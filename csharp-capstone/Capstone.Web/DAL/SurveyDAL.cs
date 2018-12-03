@@ -7,52 +7,47 @@ using Capstone.Web.Models;
 
 namespace Capstone.Web.DAL
 {
-    public class SurveyDAL : ISurveyDAL
+    public class SurveyDal : ISurveyDal
     {
-        private string connectionString;
-        public SurveyDAL(string connectionString)
+        
+        private readonly string _connectionString;
+
+        public SurveyDal(string connectionString)
         {
-            this.connectionString = connectionString;
+            this._connectionString = connectionString;
         }
 
         public void AddSurvey(Survey survey)
         {
-            try
+            using (var conn = new SqlConnection(_connectionString))
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT into survey_result VALUES (@parkCode, @emailAddress, @state, @activityLevel);", conn);
-                    cmd.Parameters.AddWithValue("@parkCode", survey.ParkCode);
-                    cmd.Parameters.AddWithValue("@emailAddress", survey.EmailAddress);
-                    cmd.Parameters.AddWithValue("@state", survey.State);
-                    cmd.Parameters.AddWithValue("@activityLevel", survey.ActivityLevel);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch(SqlException ex)
-            {
-                throw;
+                conn.Open();
+                var cmd =
+                    new SqlCommand(
+                        "INSERT into survey_result VALUES (@parkCode, @emailAddress, @state, @activityLevel);",
+                        conn);
+                cmd.Parameters.AddWithValue("@parkCode", survey.ParkCode);
+                cmd.Parameters.AddWithValue("@emailAddress", survey.EmailAddress);
+                cmd.Parameters.AddWithValue("@state", survey.State);
+                cmd.Parameters.AddWithValue("@activityLevel", survey.ActivityLevel);
+                cmd.ExecuteNonQuery();
             }
         }
 
         public Dictionary<string, int> GetSurveyResults()
         {
-            Dictionary<string, int> surveyResults = new Dictionary<string, int>();
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            var surveyResults = new Dictionary<string, int>();
+            using (var conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(@"SELECT parkCode, count(*) as hits 
+                var cmd = new SqlCommand(@"SELECT parkCode, count(*) as hits 
                 FROM survey_result 
                 GROUP BY parkCode
                 ORDER BY hits desc, parkCode;", conn);
-
-                SqlDataReader reader = cmd.ExecuteReader();
+                var reader = cmd.ExecuteReader();
                 while (reader.Read())
-                {
                     surveyResults.Add(Convert.ToString(reader["parkCode"]), Convert.ToInt32(reader["hits"]));
-                }
+
                 return surveyResults;
             }
         }

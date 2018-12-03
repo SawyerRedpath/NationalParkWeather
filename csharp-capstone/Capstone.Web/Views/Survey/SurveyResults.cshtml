@@ -11,12 +11,12 @@
         {
             <tr>
                 <td>
-                    <a asp-controller="home" asp-action="detail" asp-route-parkcode="@surveypark.park.ParkCode">
-                        <img src="~/img/parks/@(surveypark.park.ParkCode).jpg" alt="An image of @surveypark.park.ParkName" />
+                    <a asp-controller="home" asp-action="detail" asp-route-parkcode="@surveypark.Park.ParkCode">
+                        <img src="~/img/parks/@(surveypark.Park.ParkCode).jpg" alt="An image of @surveypark.Park.ParkName" />
                     </a>
                 </td>
                 <td>
-                    <h2 id="survey-results">@surveypark.park.ParkName</h2>
+                    <h2 id="survey-results">@surveypark.Park.ParkName</h2>
                     <h2 id="favorite">Favorited by @surveypark.Count vistor(s)</h2>
                 </td>
             </tr>

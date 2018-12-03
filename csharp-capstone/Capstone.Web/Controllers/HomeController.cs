@@ -13,25 +13,25 @@ namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
-        IParkDAL parkDAL;
-        IForecastDAL forecastDAL;
+        IParkDal _parkDal;
+        IForecastDal _forecastDal;
 
-        public HomeController(IParkDAL parkDAL, IForecastDAL forecastDAL)
+        public HomeController(IParkDal parkDal, IForecastDal forecastDal)
         {
-            this.parkDAL = parkDAL;
-            this.forecastDAL = forecastDAL;
+            this._parkDal = parkDal;
+            this._forecastDal = forecastDal;
         }
 
         public IActionResult Index()
         {
-            var parks = parkDAL.GetParks();
+            var parks = _parkDal.GetParks();
 
             return View(parks);
         }
 
         public IActionResult Detail(string parkCode)
         {
-            var park = parkDAL.GetPark(parkCode);
+            var park = _parkDal.GetPark(parkCode);
 
             return View(park);
         }
@@ -39,7 +39,7 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public IActionResult Forecast(string parkCode)
         {
-            var forecasts = forecastDAL.GetForecasts(parkCode);
+            var forecasts = _forecastDal.GetForecasts(parkCode);
 
             // var degree = get current degree
             var degree = GetCurrentDegree();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Web.DAL
 {
-    public interface IForecastDAL
+    public interface IForecastDal
     {
         /// <summary>
         /// Gets a list of WeatherForecasts for a given park.

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Web.DAL
 {
-    public interface IParkDAL
+    public interface IParkDal
     {
         /// <summary>
         /// Returns a list of all parks

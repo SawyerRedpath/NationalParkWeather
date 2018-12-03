@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Web.DAL
 {
-    public interface ISurveyDAL
+    public interface ISurveyDal
     {
         void AddSurvey(Survey survey);
         Dictionary<string, int> GetSurveyResults();

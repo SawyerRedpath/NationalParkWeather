@@ -9,6 +9,6 @@ namespace Capstone.Web.Models
     {
         public int Count { get; set; }
 
-        public Park park { get; set; }
+        public Park Park { get; set; }
     }
 }

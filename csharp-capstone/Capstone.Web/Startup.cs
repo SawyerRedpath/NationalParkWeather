@@ -39,9 +39,9 @@ namespace Capstone.Web
                 options.Cookie.HttpOnly = true;
             });
 
-            services.AddTransient<IParkDAL>(j => new ParkDAL(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
-            services.AddTransient<IForecastDAL>(j => new ForecastDAL(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
-            services.AddTransient<ISurveyDAL>(j => new SurveyDAL(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
+            services.AddTransient<IParkDal>(j => new ParkDal(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
+            services.AddTransient<IForecastDal>(j => new ForecastDal(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
+            services.AddTransient<ISurveyDal>(j => new SurveyDal(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
