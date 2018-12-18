@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Capstone.Web.DAL;
+﻿using Capstone.Web.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Capstone.Web
 {
@@ -42,7 +39,6 @@ namespace Capstone.Web
             services.AddTransient<IParkDal>(j => new ParkDal(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
             services.AddTransient<IForecastDal>(j => new ForecastDal(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
             services.AddTransient<ISurveyDal>(j => new SurveyDal(@"Data Source=.\sqlexpress;Initial Catalog=NPGeek;Integrated Security=true;"));
-
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Capstone.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using Capstone.Web.Models;
 
 namespace Capstone.Web.DAL
 {

@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Capstone.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
-using Capstone.Web.Models;
 
 namespace Capstone.Web.DAL
 {
@@ -23,7 +21,7 @@ namespace Capstone.Web.DAL
         /// <returns>The forecast for the park.</returns>
         public IList<WeatherForecast> GetForecasts(string parkCode)
         {
-            IList<WeatherForecast> forecasts = new List <WeatherForecast>();
+            IList<WeatherForecast> forecasts = new List<WeatherForecast>();
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -37,7 +35,7 @@ namespace Capstone.Web.DAL
                     forecasts.Add(MapRowToForecast(reader));
                 }
             }
-                return forecasts;
+            return forecasts;
         }
 
         private WeatherForecast MapRowToForecast(SqlDataReader reader)

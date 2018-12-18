@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Capstone.Web.DAL;
+﻿using Capstone.Web.DAL;
 using Capstone.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Capstone.Web.Controllers
 {
@@ -12,16 +9,19 @@ namespace Capstone.Web.Controllers
     {
         private ISurveyDal _surveyDal;
         private IParkDal _parkDal;
+
         public SurveyController(ISurveyDal surveyDal, IParkDal parkDal)
         {
             this._surveyDal = surveyDal;
             this._parkDal = parkDal;
         }
+
         public IActionResult Index()
         {
             Survey survey = new Survey();
             return View(survey);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AddSurvey(Survey survey)
@@ -29,14 +29,15 @@ namespace Capstone.Web.Controllers
             _surveyDal.AddSurvey(survey);
             return RedirectToAction("SurveyResults", "Survey");
         }
+
         public IActionResult SurveyResults()
         {
             //call dal and return list of parks codes and counts
             Dictionary<string, int> surveyCount = _surveyDal.GetSurveyResults();
 
             IList<SurveyPark> surveyParks = new List<SurveyPark>();
-            
-            foreach(KeyValuePair<string, int> kvp in surveyCount)
+
+            foreach (KeyValuePair<string, int> kvp in surveyCount)
             {
                 var park = _parkDal.GetPark(kvp.Key);
                 SurveyPark sp = new SurveyPark();

@@ -1,15 +1,12 @@
-﻿using System;
+﻿using Capstone.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
-using Capstone.Web.Models;
 
 namespace Capstone.Web.DAL
 {
     public class SurveyDal : ISurveyDal
     {
-        
         private readonly string _connectionString;
 
         public SurveyDal(string connectionString)
@@ -40,8 +37,8 @@ namespace Capstone.Web.DAL
             using (var conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
-                var cmd = new SqlCommand(@"SELECT parkCode, count(*) as hits 
-                FROM survey_result 
+                var cmd = new SqlCommand(@"SELECT parkCode, count(*) as hits
+                FROM survey_result
                 GROUP BY parkCode
                 ORDER BY hits desc, parkCode;", conn);
                 var reader = cmd.ExecuteReader();

@@ -5,11 +5,11 @@
 
 <h2 class="heading">The Official National Park Survey </h2>
 
-<form asp-controller="survey" asp-action="addsurvey" method="post">    
+<form asp-controller="survey" asp-action="addsurvey" method="post">
     <div class="form-style-5">
         <fieldset>
             <label class="text-content" asp-for="ParkCode">What is your Favorite National Park?</label>
-            <select asp-for="ParkCode" asp-items="@Survey.Parks" ></select>
+            <select asp-for="ParkCode" asp-items="@Survey.Parks"></select>
             <label class="text-content" asp-for="EmailAddress">What's your email address?</label>
             <input asp-for="EmailAddress" type="email" placeholder="Your Email ">
             <label class="text-content" asp-for="State">Your State of Residence</label>
@@ -25,4 +25,3 @@
         </fieldset>
     </div>
 </form>
-

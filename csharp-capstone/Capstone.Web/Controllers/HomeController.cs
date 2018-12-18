@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Capstone.Web.DAL;
 using Capstone.Web.Models;
-using Capstone.Web.DAL;
+using Microsoft.AspNetCore.Mvc;
 using SessionCart.Web.Extensions;
-using Microsoft.AspNetCore.Routing;
+using System.Diagnostics;
 
 namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
-        IParkDal _parkDal;
-        IForecastDal _forecastDal;
+        private IParkDal _parkDal;
+        private IForecastDal _forecastDal;
 
         public HomeController(IParkDal parkDal, IForecastDal forecastDal)
         {
@@ -43,20 +38,18 @@ namespace Capstone.Web.Controllers
 
             // var degree = get current degree
             var degree = GetCurrentDegree();
-            
-            
+
             // if degree c go through list of forecasts and convert it to celsius and set degree property to "C" THEN return view with new forecasts
             if (degree == "C")
             {
-                foreach(var forecast in forecasts)
+                foreach (var forecast in forecasts)
                 {
                     forecast.Degree = "C";
                     forecast.High = forecast.FahrenheitToCelsius(forecast.High);
                     forecast.Low = forecast.FahrenheitToCelsius(forecast.Low);
                 }
-        
             }
-  
+
             return View(forecasts);
         }
 
